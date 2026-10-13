@@ -16,8 +16,8 @@ body{margin:0;background:var(--bg);color:var(--fg);font-family:"Archivo",system-
 a{color:inherit}
 .wrap{max-width:1040px;margin:0 auto;padding:0 20px}
 header{background:var(--soil);color:var(--soilfg)}
-.bar{display:flex;align-items:center;justify-content:space-between;gap:12px;padding:14px 20px;max-width:1040px;margin:0 auto}
-.logo{display:flex;align-items:center;text-decoration:none;color:inherit}.logo svg{height:44px;width:auto;display:block}
+.bar{display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:12px 24px;padding:16px 20px;max-width:1040px;margin:0 auto}
+.logo{display:flex;align-items:center;flex:0 0 auto;max-width:100%;text-decoration:none;color:inherit}.logo svg{height:64px;width:auto;max-width:100%;display:block;overflow:visible}
 nav{display:flex;gap:18px;font-size:.9rem;flex-wrap:wrap}
 nav a{text-decoration:none;opacity:.85}
 nav a:hover{opacity:1;text-decoration:underline}
@@ -45,6 +45,11 @@ ul.def li{padding:8px 0;border-bottom:1px solid var(--line)}
 .years{font-size:clamp(3rem,12vw,5rem);font-weight:800;line-height:1;color:var(--accent)}
 .tags{display:flex;flex-wrap:wrap;gap:10px;padding:0;margin:0;list-style:none}
 .tags li{border:1px solid var(--line);background:var(--card);padding:8px 14px;border-radius:99px;font-size:.95rem}
+.who{display:grid;grid-template-columns:repeat(auto-fit,minmax(250px,1fr));gap:16px}
+.who div{background:var(--card);border:1px solid var(--line);border-top:4px solid var(--accent);border-radius:8px;padding:18px}
+.who b{display:block;font-size:1.1rem;margin-bottom:6px}
+.who span{color:var(--muted)}
+.who .part{border-top-color:var(--signal)}
 .contact{background:var(--soil);color:var(--soilfg);text-align:center}
 .contact p{color:#C3D0CE;margin:0 auto 22px;max-width:48ch}
 footer{background:var(--soil);color:#8FA2A1;font-size:.85rem;padding:18px 0 26px;text-align:center}
@@ -55,7 +60,7 @@ footer{background:var(--soil);color:#8FA2A1;font-size:.85rem;padding:18px 0 26px
 <body>
 <header>
 <div class="bar">
-<a class="logo" href="#top" aria-label="Cal’Rézeaux, accueil"><svg viewBox="0 0 490 130" role="img" aria-hidden="true"><g transform="translate(-6,6)" fill="none" stroke-linecap="round"><path d="M90.6 85.7 A40 40 0 1 1 90.6 34.3" stroke="#4FB3BC" stroke-width="20"/><path d="M74.4 52.8 A14 14 0 0 1 74.4 67.2" stroke="#F2B134" stroke-width="4"/><path d="M81.3 44.7 A26 26 0 0 1 81.3 75.3" stroke="#F2B134" stroke-width="4"/><circle cx="60" cy="60" r="9" fill="#F2B134" stroke="none"/></g><text x="138" y="84" textLength="348" lengthAdjust="spacing" font-family="Archivo,'Arial Black',Arial,sans-serif" font-size="60" font-weight="800"><tspan fill="#F4F6F5">Cal’</tspan><tspan fill="#4FB3BC">Rézeaux</tspan></text></svg></a>
+<a class="logo" href="#top" aria-label="Cal’Rézeaux, accueil"><svg viewBox="0 0 505 130" role="img" aria-hidden="true"><g transform="translate(-6,6)" fill="none" stroke-linecap="round"><path d="M90.6 85.7 A40 40 0 1 1 90.6 34.3" stroke="#4FB3BC" stroke-width="20"/><path d="M74.4 52.8 A14 14 0 0 1 74.4 67.2" stroke="#F2B134" stroke-width="4"/><path d="M81.3 44.7 A26 26 0 0 1 81.3 75.3" stroke="#F2B134" stroke-width="4"/><circle cx="60" cy="60" r="9" fill="#F2B134" stroke="none"/></g><text x="138" y="84" textLength="348" lengthAdjust="spacing" font-family="Archivo,'Arial Black',Arial,sans-serif" font-size="60" font-weight="800"><tspan fill="#F4F6F5">Cal’</tspan><tspan fill="#4FB3BC">Rézeaux</tspan></text></svg></a>
 <nav aria-label="Navigation">
 <a href="#services">Prestations</a><a href="#pourquoi">Pourquoi inspecter</a><a href="#materiel">Matériel</a><a href="#secteurs">Secteurs</a><a href="#contact">Contact</a>
 </nav>
@@ -66,7 +71,7 @@ footer{background:var(--soil);color:#8FA2A1;font-size:.85rem;padding:18px 0 26px
 <div class="hero">
 <div class="wrap">
 <h1>Ne creusez plus à l'aveugle.</h1>
-<p>Détection de réseaux enterrés et inspection de canalisations EP, EU et EV sur le domaine privé. Sans casser, sans ouvrir le sol.</p>
+<p>Détection de réseaux enterrés et inspection de canalisations EP, EU et EV sur le domaine privé. Une économie moyenne de 10% par dossier pour les professionnels grâce à la détection.</p>
 <div class="cta"><a class="btn" href="#contact">Demander un devis</a><a class="btn alt" href="#services">Voir les prestations</a></div>
 </div>
 <svg viewBox="0 0 600 320" preserveAspectRatio="xMidYMax meet" role="img" aria-label="Coupe de sol : un détecteur en surface repère un câble et une canalisation enterrés, avec des racines et une caméra d'inspection dans le tuyau">
@@ -102,12 +107,13 @@ footer{background:var(--soil);color:#8FA2A1;font-size:.85rem;padding:18px 0 26px
 <div class="cols">
 <div class="col">
 <h3>Détection de réseaux par méthode électromagnétique</h3>
-<p>Une méthode non destructive : elle repère le tracé et la profondeur des canalisations et des câbles enterrés sans ouvrir le sol.</p>
+<p>Une méthode non destructive : elle repère le tracé et la profondeur des canalisations et des câbles enterrés sans ouvrir le sol. Un câble, une arrivée d'eau ou le réseau de la piscine, tout devient visible.</p>
 <p>Vous creusez au bon endroit, avec moins de risques d'endommager l'existant.</p>
 </div>
 <div class="col">
 <h3>Inspection caméra EP / EU / EV</h3>
 <p>Un état réel de vos réseaux d'eaux pluviales, d'eaux usées et d'eaux vannes, images à l'appui.</p>
+<p>Le diagnostic précis des endommagements (casse, fissure, déboîtement, racines) permet de réparer uniquement la zone concernée et d'éviter des tranchées inutiles.</p>
 <p>Je localise le défaut en surface grâce à la sonde de la caméra.</p>
 </div>
 </div>
@@ -162,11 +168,17 @@ footer{background:var(--soil);color:#8FA2A1;font-size:.85rem;padding:18px 0 26px
 
 <section id="secteurs">
 <div class="wrap">
-<h2>Pour qui ?</h2>
-<p class="lead">Les professionnels qui ont besoin de connaître les réseaux avant d'agir, sur le domaine privé.</p>
-<ul class="tags">
-<li>Plombiers</li><li>Architectes</li><li>Géomètres-topographes</li><li>Entreprises de rénovation</li><li>Terrassiers</li><li>Paysagistes</li><li>Reprise en sous-œuvre</li><li>Syndics et agences immobilières</li><li>Notaires</li><li>Particuliers</li>
-</ul>
+<h2>Pour qui ? Pour ceux qui ne veulent plus de mauvaises surprises.</h2>
+<p class="lead">Un câble sectionné, une canalisation éventrée, un chantier à l'arrêt : chaque métier a son cauchemar. Je l'évite avant que la pelle ne parte.</p>
+<div class="who">
+<div><b>Plombiers</b><span>Trouvez la cause du bouchon ou de la fuite sans casser, et ciblez la réparation.</span></div>
+<div><b>Architectes et maîtres d'œuvre</b><span>Concevez sur des réseaux connus, pas supposés.</span></div>
+<div><b>Géomètres-topographes</b><span>Complétez vos relevés avec les réseaux enterrés repérés sur site.</span></div>
+<div><b>Terrassiers et paysagistes</b><span>Creusez l'esprit tranquille : plus de câble ou de tuyau arraché.</span></div>
+<div><b>Rénovation et reprise en sous-œuvre</b><span>Chiffrez juste avant d'ouvrir le chantier, sans surcoût imprévu.</span></div>
+<div><b>Syndics, agences et notaires</b><span>Un état des réseaux documenté pour une assemblée générale, une vente ou un sinistre.</span></div>
+<div class="part"><b>Particuliers</b><span>Piscine, extension, terrasse : vérifiez ce qu'il y a sous le sol avant de creuser.</span></div>
+</div>
 </div>
 </section>
 
