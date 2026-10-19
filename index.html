@@ -50,8 +50,32 @@ ul.def li{padding:8px 0;border-bottom:1px solid var(--line)}
 .who b{display:block;font-size:1.1rem;margin-bottom:6px}
 .who span{color:var(--muted)}
 .who .part{border-top-color:var(--signal)}
+.rev-head{display:flex;align-items:flex-end;justify-content:space-between;gap:16px;margin-bottom:22px}
+.rev-head h2{margin:0}
+.arrows{display:flex;gap:8px}
+.arrows button{width:44px;height:44px;border-radius:50%;border:1.5px solid var(--line);background:var(--card);color:var(--fg);font-size:1.3rem;cursor:pointer}
+.track{display:flex;gap:16px;overflow-x:auto;scroll-snap-type:x mandatory;scrollbar-width:none;padding-bottom:4px}
+.track::-webkit-scrollbar{display:none}
+.track figure{flex:0 0 min(88%,380px);scroll-snap-align:start;margin:0;background:var(--bg);border:1px solid var(--line);border-top:4px solid var(--signal);border-radius:8px;padding:20px}
+.stars{color:var(--signal);font-size:1.3rem;letter-spacing:3px}
+.track blockquote{margin:10px 0 14px;color:var(--fg)}
+.track figcaption{color:var(--muted);font-size:.9rem}
 .contact{background:var(--soil);color:var(--soilfg);text-align:center}
 .contact p{color:#C3D0CE;margin:0 auto 22px;max-width:48ch}
+.mail{max-width:480px;margin:34px auto 0;text-align:left;border-top:1px solid #2C3A3F;padding-top:26px}
+.mail h3{margin:0 0 14px;font-size:1.15rem;text-align:center}
+.mail label{display:block;font-size:.9rem;margin:0 0 12px}
+.mail input,.mail textarea{display:block;width:100%;margin-top:5px;padding:11px 12px;font:inherit;color:#12191C;background:#F4F6F5;border:1.5px solid transparent;border-radius:6px}
+.mail textarea{min-height:120px;resize:vertical}
+.mail button{width:100%;border:0;cursor:pointer;font:inherit;font-size:1rem}
+.mail fieldset{border:0;padding:0;margin:0 0 14px}
+.mail legend{font-size:.9rem;padding:0;margin-bottom:6px}
+.mail .opts{display:flex;gap:10px;flex-wrap:wrap}
+.mail .opts label{display:flex;align-items:center;gap:8px;margin:0;padding:10px 14px;border:1.5px solid #2C3A3F;border-radius:6px;cursor:pointer;flex:1 1 150px}
+.mail .opts input{display:inline-block;width:auto;margin:0;accent-color:#F2B134}
+.mail #err{color:var(--signal);margin:0 0 10px;text-align:center}
+.mail small{display:block;margin-top:12px;text-align:center;color:#C3D0CE}
+.mail small a{color:var(--signal)}
 footer{background:var(--soil);color:#8FA2A1;font-size:.85rem;padding:18px 0 26px;text-align:center}
 :focus-visible{outline:3px solid var(--signal);outline-offset:2px}
 @media (prefers-reduced-motion:reduce){html{scroll-behavior:auto}}
@@ -62,7 +86,7 @@ footer{background:var(--soil);color:#8FA2A1;font-size:.85rem;padding:18px 0 26px
 <div class="bar">
 <a class="logo" href="#top" aria-label="Cal’Rézeaux, accueil"><svg viewBox="0 0 505 130" role="img" aria-hidden="true"><g transform="translate(-6,6)" fill="none" stroke-linecap="round"><path d="M90.6 85.7 A40 40 0 1 1 90.6 34.3" stroke="#4FB3BC" stroke-width="20"/><path d="M74.4 52.8 A14 14 0 0 1 74.4 67.2" stroke="#F2B134" stroke-width="4"/><path d="M81.3 44.7 A26 26 0 0 1 81.3 75.3" stroke="#F2B134" stroke-width="4"/><circle cx="60" cy="60" r="9" fill="#F2B134" stroke="none"/></g><text x="138" y="84" textLength="348" lengthAdjust="spacing" font-family="Archivo,'Arial Black',Arial,sans-serif" font-size="60" font-weight="800"><tspan fill="#F4F6F5">Cal’</tspan><tspan fill="#4FB3BC">Rézeaux</tspan></text></svg></a>
 <nav aria-label="Navigation">
-<a href="#services">Prestations</a><a href="#pourquoi">Pourquoi inspecter</a><a href="#materiel">Matériel</a><a href="#secteurs">Secteurs</a><a href="#contact">Contact</a>
+<a href="#services">Prestations</a><a href="#pourquoi">Pourquoi inspecter ?</a><a href="#experience">Expérience</a><a href="#secteurs">Pour qui ?</a><a href="#contact">Contact</a>
 </nav>
 </div>
 </header>
@@ -71,7 +95,7 @@ footer{background:var(--soil);color:#8FA2A1;font-size:.85rem;padding:18px 0 26px
 <div class="hero">
 <div class="wrap">
 <h1>Ne creusez plus à l'aveugle.</h1>
-<p>Détection de réseaux enterrés et inspection de canalisations EP, EU et EV sur le domaine privé. Une économie moyenne de 10% par dossier pour les professionnels grâce à la détection.</p>
+<p>Détection de réseaux enterrés et inspection de canalisations EP, EU et EV sur le domaine privé.<br>Une économie moyenne de 10% par dossier pour les professionnels et des ennuis en moins pour les particuliers grâce à la détection et l’inspection des réseaux domestiques.</p>
 <div class="cta"><a class="btn" href="#contact">Demander un devis</a><a class="btn alt" href="#services">Voir les prestations</a></div>
 </div>
 <svg viewBox="0 0 600 320" preserveAspectRatio="xMidYMax meet" role="img" aria-label="Dessin en coupe : un technicien balaie le sol avec un détecteur et repère un câble et une conduite d'eau enterrés, pendant qu'un second technicien pilote une caméra d'inspection dans une canalisation avec des racines">
@@ -118,12 +142,12 @@ footer{background:var(--soil);color:#8FA2A1;font-size:.85rem;padding:18px 0 26px
 
 <section id="services">
 <div class="wrap">
-<h2>Deux prestations, un même objectif : savoir avant d'intervenir.</h2>
+<h2>Deux prestations, un même objectif : prévenir avant d'intervenir.</h2>
 <p class="lead">Je localise puis j'analyse vos réseaux, sans tranchée ni démolition, sur le domaine privé : maisons, immeubles, copropriétés, sites tertiaires et industriels.</p>
 <div class="cols">
 <div class="col">
 <h3>Détection de réseaux par méthode électromagnétique</h3>
-<p>Une méthode non destructive : elle repère le tracé et la profondeur des canalisations et des câbles enterrés sans ouvrir le sol. Un câble, une arrivée d'eau ou le réseau de la piscine, tout devient visible.</p>
+<p>Une méthode non destructive : je repère le tracé et la profondeur des canalisations, des tuyaux et des câbles enterrés sans creuser ou ouvrir le sol.<br>Un câble, une arrivée d'eau, une évacuation ou le réseau de la piscine, tout devient visible.</p>
 <p>Vous creusez au bon endroit, avec moins de risques d'endommager l'existant.</p>
 </div>
 <div class="col">
@@ -158,17 +182,13 @@ footer{background:var(--soil);color:#8FA2A1;font-size:.85rem;padding:18px 0 26px
 </div>
 </section>
 
-<section id="materiel">
+<section id="experience">
 <div class="wrap">
 <div class="cols">
 <div>
 <div class="years">7 ans</div>
 <h2>d'expérience de terrain.</h2>
 <p class="lead">7 années d’intervention sur maisons, copropriétés, sites tertiaires et industriels.</p>
-</div>
-<div class="gear">
-<div><b>Caméra RIDGID SeeSnake Compact 2</b><span>Image nette et sonde localisable.</span></div>
-<div><b>Détecteur Vivax V-loc Pro</b><span>Localisation précise des réseaux et de la sonde.</span></div>
 </div>
 </div>
 </div>
@@ -198,6 +218,23 @@ footer{background:var(--soil);color:#8FA2A1;font-size:.85rem;padding:18px 0 26px
 </div>
 </section>
 
+<section id="avis" class="band">
+<div class="wrap">
+<div class="rev-head">
+<h2>Ils m'ont fait confiance</h2>
+<div class="arrows"><button type="button" id="prev" aria-label="Avis précédent">‹</button><button type="button" id="next" aria-label="Avis suivant">›</button></div>
+</div>
+<div class="track" id="track">
+<figure><div class="stars" aria-label="5 étoiles sur 5">★★★★★</div><blockquote>Intervention rapide et professionnelle. Le repérage des réseaux a été réalisé avec sérieux et les explications étaient très claires. Je recommande !</blockquote><figcaption>Marie B.</figcaption></figure>
+<figure><div class="stars" aria-label="5 étoiles sur 5">★★★★★</div><blockquote>Très satisfait de la prestation. Technicien compétent, du matériel adapté et sophistiqué et des marquage précis avant le début des travaux.</blockquote><figcaption>Mickael F.</figcaption></figure>
+<figure><div class="stars" aria-label="5 étoiles sur 5">★★★★★</div><blockquote>Intervention rapide et efficace pour l’inspection de mes canalisations. Travail sérieux, diagnostic clair et bons conseils pour la suite.</blockquote><figcaption>Eliot R.</figcaption></figure>
+<figure><div class="stars" aria-label="5 étoiles sur 5">★★★★★</div><blockquote>Technicien ponctuel et professionnel. L’inspection vidéo a permis de mieux comprendre l’état des canalisations. Service efficace, je recommande.</blockquote><figcaption>Thomas D.</figcaption></figure>
+<figure><div class="stars" aria-label="5 étoiles sur 5">★★★★★</div><blockquote>Prestation complète et efficace, détection des réseaux enterrés et inspection des canalisations. Un seul interlocuteur, des explications claires et un travail très professionnel. Rapport explicatif en prime, je recommande !</blockquote><figcaption>Stéphanie A.</figcaption></figure>
+<figure><div class="stars" aria-label="5 étoiles sur 5">★★★★★</div><blockquote>Intervention au top ! Les canalisations ont été inspectées avec soin et les résultats m’ont été expliqués clairement. Très satisfait du service.</blockquote><figcaption>Édouard A.</figcaption></figure>
+</div>
+</div>
+</section>
+
 <section id="contact" class="contact">
 <div class="wrap">
 <h2>Un projet ? Parlons de vos réseaux.</h2>
@@ -207,10 +244,48 @@ footer{background:var(--soil);color:#8FA2A1;font-size:.85rem;padding:18px 0 26px
 <a class="btn alt" href="sms:+33628565053">Écrire par SMS</a>
 <a class="btn alt" href="https://wa.me/33628565053">WhatsApp</a>
 </div>
+<div class="mail">
+<h3>Demande de devis</h3>
+<form id="mailform">
+<fieldset><legend>Vous êtes</legend><div class="opts">
+<label><input type="radio" name="type" value="Particulier" required> Particulier</label>
+<label><input type="radio" name="type" value="Professionnel"> Professionnel</label>
+</div></fieldset>
+<fieldset><legend>Prestation souhaitée</legend><div class="opts">
+<label><input type="checkbox" name="presta" value="Inspection caméra"> Inspection caméra</label>
+<label><input type="checkbox" name="presta" value="Détection de réseaux"> Détection de réseaux</label>
+</div></fieldset>
+<label>Localisation du chantier (commune)<input type="text" name="lieu" autocomplete="address-level2" required></label>
+<label>Votre nom<input type="text" name="nom" autocomplete="name" required></label>
+<label>Votre e-mail ou téléphone<input type="text" name="contact" autocomplete="email" required></label>
+<label>Précisions<textarea name="message" style="min-height:90px"></textarea></label>
+<p id="err" role="alert"></p>
+<button class="btn" type="submit">Demander mon devis</button>
+</form>
+<small>Ou directement : <a href="mailto:damien.calzolai@gmail.com">damien.calzolai@gmail.com</a></small>
+</div>
 </div>
 </section>
 </main>
 
-<footer><div class="wrap">Cal’Rézeaux · [SIRET] · Mentions légales</div></footer>
+<footer><div class="wrap">Cal’Rézeaux · <a href="mailto:damien.calzolai@gmail.com">damien.calzolai@gmail.com</a> · Mentions légales</div></footer>
+<script>
+(function(){var t=document.getElementById('track');
+document.getElementById('next').onclick=function(){t.scrollBy({left:t.clientWidth*0.8,behavior:'smooth'});};
+document.getElementById('prev').onclick=function(){t.scrollBy({left:-t.clientWidth*0.8,behavior:'smooth'});};})();
+</script>
+<script>
+document.getElementById('mailform').addEventListener('submit',function(e){
+e.preventDefault();
+var f=e.target;
+var p=[].slice.call(f.querySelectorAll('input[name=presta]:checked')).map(function(c){return c.value;});
+var err=document.getElementById('err');
+if(!p.length){err.textContent='Choisissez au moins une prestation.';return;}
+err.textContent='';
+var t=f.querySelector('input[name=type]:checked').value;
+var body='Demande de devis\n\nType : '+t+'\nPrestation : '+p.join(' + ')+'\nLocalisation du chantier : '+f.lieu.value+'\nNom : '+f.nom.value+'\nContact : '+f.contact.value+(f.message.value?'\n\nPrécisions :\n'+f.message.value:'');
+window.location.href='mailto:damien.calzolai@gmail.com?subject='+encodeURIComponent('Demande de devis – '+p.join(' + ')+' – '+f.lieu.value)+'&body='+encodeURIComponent(body);
+});
+</script>
 </body>
 </html>
